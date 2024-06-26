@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Version2.MainPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Venstre kolonne -->
+        <StackLayout Grid.Column="0" Padding="10">
+            <Label Text="Beskriv fejlen her" 
+                   FontSize="Medium" 
+                   VerticalOptions="Start" />
+            <Editor x:Name="fejlBeskrivelse" 
+                    HeightRequest="200" 
+                    VerticalOptions="FillAndExpand" />
+            <Button Text="Indsend" 
+                    VerticalOptions="End" 
+                    Clicked="OnIndsendClicked" />
+        </StackLayout>
+
+        <!-- Højre kolonne -->
+        <StackLayout Grid.Column="1" Padding="10">
+            <Label Text="Titel" 
+                   FontSize="Medium" 
+                   VerticalOptions="Start" />
+            <Label x:Name="titelLabel" 
+                   FontSize="Small" 
+                   VerticalOptions="Start" />
+
+            <Label Text="Forventet opførsel" 
+                   FontSize="Medium" 
+                   VerticalOptions="Start" />
+            <Label x:Name="forventetOpfoerselLabel" 
+                   FontSize="Small" 
+                   VerticalOptions="Start" />
+
+            <Label Text="Oplevet opførsel" 
+                   FontSize="Medium" 
+                   VerticalOptions="Start" />
+            <Label x:Name="oplevetOpfoerselLabel" 
+                   FontSize="Small" 
+                   VerticalOptions="Start" />
+
+            <Label Text="Trin til at genskabe" 
+                   FontSize="Medium" 
+                   VerticalOptions="Start" />
+            <Label x:Name="trinLabel" 
+                   FontSize="Small" 
+                   VerticalOptions="StartAndExpand" />
+
+
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

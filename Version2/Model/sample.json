@@ -1,0 +1,13 @@
+﻿{
+  "fejlrapport": {
+    "titel": "Programmet crasher, når jeg klikker på 'Gem'-knappen",
+    "forventet": "Når jeg klikker på 'Gem'-knappen, bør programmet gemme mine data og vise en bekræftelse på, at handlingen er udført korrekt. Programmet bør forblive funktionelt og køre uden afbrydelser.",
+    "oplevet": "Når jeg klikker på 'Gem'-knappen, crasher programmet og lukker uventet ned. Data bliver ikke gemt, og jeg modtager ingen bekræftelse eller fejlmeddelelse før programmet lukker.",
+    "trin": [
+      "Åbn programmet.",
+      "Indtast de nødvendige data i de relevante felter.",
+      "Klik på 'Gem'-knappen.",
+      "Programmet crasher og lukker ned."
+    ]
+  }
+}
