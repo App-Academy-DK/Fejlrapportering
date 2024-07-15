@@ -10,12 +10,19 @@ namespace OpenAiService
     {
         public string model { get; set; }
         public Message[] messages { get; set; }
+        public ResponseFormat response_format { get; set; }
     }
 
     public class Message
     {
         public string role { get; set; }
         public string content { get; set; }
+        
+    }
+
+    public class ResponseFormat
+    {
+        public string type { get; set; }
     }
 
 }

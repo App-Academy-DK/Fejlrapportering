@@ -1,10 +1,6 @@
 ﻿using Fejlrapportering;
-using Microsoft.Maui.Controls.PlatformConfiguration;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using OpenAiService;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using Version2.Model;
 
 namespace Version2
@@ -37,13 +33,8 @@ namespace Version2
                 $"Trin for at genskabe.\r\nTag udgangspunkt i denne beskrivelse:\r\n```\r\n{fejlBeskrivelse.Text}```. " +
                 $"Svaret skal være JSON i dette format {JSON_TEMPLATE}";
 
-            var resultJson = await ChatService.promptGpt4Async(prompt, Token.token);
-
-            if (resultJson.StartsWith("```json"))
-            {
-                resultJson = resultJson.Substring(7, resultJson.Length - 11);
-            }
-
+            var resultJson = await ChatService.promptGpt4Async(prompt, Token.token, returnJson: true);
+            
             var result = JsonConvert.DeserializeObject<Fejlrapport>(resultJson);
             if (result != null)
             {

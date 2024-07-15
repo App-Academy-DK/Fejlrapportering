@@ -9,7 +9,7 @@ namespace OpenAiService
 {
     public class ChatService
     {
-        public static async Task<string> promptGpt4Async(Message[] messages, string token)
+        public static async Task<string> promptGpt4Async(Message[] messages, string token, bool returnJson = false)
         {
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
@@ -22,6 +22,10 @@ namespace OpenAiService
             {
                 model = "gpt-4o",
                 messages = messages,
+                response_format = new ResponseFormat()
+                { 
+                    type = returnJson ? "json_object" : "text",
+                }
             });
 
             request.Content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -35,7 +39,7 @@ namespace OpenAiService
             return text;
         }
 
-        public static Task<string> promptGpt4Async(string prompt, string token)
+        public static Task<string> promptGpt4Async(string prompt, string token, bool returnJson = false)
         {
             var messages = new Message[]
             {
@@ -46,7 +50,7 @@ namespace OpenAiService
                     }
             };
 
-            return promptGpt4Async(messages, token);
+            return promptGpt4Async(messages, token, returnJson);
 
         }
 
